@@ -29,7 +29,7 @@ interface VideoMetadata {
  * @throws {Error} Will get thrown if file does not exist, ffmpeg/ffprobe is missing or can not be read
  * @returns {VideoMetadata} Metadata of the local video-file
  */
-export default async function getVideoMetadata(videoFile: string) {
+export async function getVideoMetadata(videoFile: string) {
     const executable: string = process.env.FFPROBE_EXEC || 'ffprobe';
     const output = (await child_process.exec(`${executable} 
 -v error 
