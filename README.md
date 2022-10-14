@@ -1,20 +1,22 @@
-# video-metadata
+# get-video-metadata
 
-<p align="center"><a href="https://nodei.co/npm/video-metadata/"><img alt="npm package stats" src="https://nodei.co/npm/video-metadata.png"></a></p>
-<p align="center"><a href="https://github.com/scderox/video-metadata?sponsor=1">&hearts; Sponsor</a> or <a href="https://github.com/SCDerox/video-metadata">★ Star</a></p>
+<p align="center"><a href="https://nodei.co/npm/get-video-metadata/"><img alt="npm package stats" src="https://nodei.co/npm/get-video-metadata.png"></a></p>
+<p align="center"><a href="https://github.com/scderox/get-video-metadata?sponsor=1">&hearts; Sponsor</a> or <a href="https://github.com/SCDerox/get-video-metadata">★ Star</a></p>
 
 This library uses [ffprobe](https://ffmpeg.org/ffprobe.html)-CLI-Tool to extract data (fps, aspect-ratio, size, duration,
 …) from any video on your hard drive.
 
 ## Installation
-1. Install [ffmpeg](https://ffmpeg.org/download.html) (we only need ffprobe, ffprobe is included in ffmpeg). The library will use the CMD-Library by default, unless the `FFPROBE_EXEC` environment variable is specified.
-2. Install video-metadata from NPM: `npm i --save video-metadata`
+
+1. Install [ffmpeg](https://ffmpeg.org/download.html) (we only need ffprobe, ffprobe is included in ffmpeg). The library
+   will use the CMD-Library by default, unless the `FFPROBE_EXEC` environment variable is specified.
+2. Install get-video-metadata from NPM: `npm i --save get-video-metadata`
 3. Enjoy 🎉
 
 ## Usage
 
 ```javascript
-import getVideoMetadata from "video-metadata";
+import getVideoMetadata from "get-video-metadata";
 
 getVideoMetadata('./test.mp4').then(console.log)
 /* Output: 

@@ -1,5 +1,5 @@
 {
-  "name": "video-metadata",
+  "name": "get-video-metadata",
   "version": "1.0.0",
   "description": "Extract metadata from any video on your hard drive",
   "main": "dist/index.js",
