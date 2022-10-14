@@ -1,0 +1,37 @@
+{
+  "name": "video-metadata",
+  "version": "1.0.0",
+  "description": "Extract metadata from any video on your hard drive",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SCDerox/video-metadata.git"
+  },
+  "keywords": [
+    "video",
+    "metadata"
+  ],
+  "author": "SCDerox",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SCDerox/video-metadata/issues"
+  },
+  "funding": [
+    "https://github.com/sponsors/SCDerox",
+    "https://bunq.me/scderox",
+    "https://paypal.me/therealscderox"
+  ],
+  "homepage": "https://github.com/SCDerox/video-metadata#readme",
+  "dependencies": {
+    "@types/mz": "^2.7.4",
+    "@types/node": "^18.8.5",
+    "mz": "^2.7.0"
+  }
+}
