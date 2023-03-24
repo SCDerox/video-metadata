@@ -34,7 +34,7 @@ export async function getVideoMetadata(videoFile: string) {
     const output = (await child_process.exec(`${executable} 
 -v error 
     -select_streams v:0 
-    -show_entries stream=width,height,duration,codec_type,codec_name,codec_long_name,bit_rate,size,display_aspect_ratio,r_frame_rate
+    -show_entries stream=width,height,duration,codec_type,codec_name,codec_long_name,bit_rate,size,r_frame_rate
     ${videoFile}`.replaceAll('\n', ''), {
         windowsHide: true
     }).catch((reason) => {
@@ -43,7 +43,7 @@ export async function getVideoMetadata(videoFile: string) {
     const data = output.replaceAll('[STREAM]', '').replaceAll('[/STREAM]', '').split('\n').filter(l => l !== '').reduce((acc, curr) => (acc[curr.split('=')[0]] = curr.split('=')[1], acc), {});
     return {
         codec: {name: data['codec_name'], longName: data['codec_long_name'], type: data['codec_type']},
-        aspectRatio: data['display_aspect_ratio'] === 'N/A' ? determineAspectRatio(parseInt(data['width']), parseInt(data['height'])) : data['display_aspect_ratio'],
+        aspectRatio: determineAspectRatio(parseInt(data['width']), parseInt(data['height'])),
         width: data['width'],
         height: data['height'],
         frameRate: data['r_frame_rate'].split('/')[0] / data['r_frame_rate'].split('/')[1],

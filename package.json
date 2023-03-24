@@ -1,6 +1,6 @@
 {
   "name": "get-video-metadata",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Extract metadata from any video on your hard drive",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
