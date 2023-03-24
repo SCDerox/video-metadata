@@ -43,11 +43,32 @@ export async function getVideoMetadata(videoFile: string) {
     const data = output.replaceAll('[STREAM]', '').replaceAll('[/STREAM]', '').split('\n').filter(l => l !== '').reduce((acc, curr) => (acc[curr.split('=')[0]] = curr.split('=')[1], acc), {});
     return {
         codec: {name: data['codec_name'], longName: data['codec_long_name'], type: data['codec_type']},
-        aspectRatio: data['display_aspect_ratio'],
+        aspectRatio: data['display_aspect_ratio'] === 'N/A' ? determineAspectRatio(parseInt(data['width']), parseInt(data['height'])) : '16:0',
         width: data['width'],
         height: data['height'],
         frameRate: data['r_frame_rate'].split('/')[0] / data['r_frame_rate'].split('/')[1],
         bitRate: data['bit_rate'],
         duration: data['duration']
     } as VideoMetadata;
+}
+
+function determineAspectRatio(width: number, height: number) {
+    const divider = gcd(width, height);
+    return `${width / divider}:${height / divider}`
+}
+
+function gcd(a: number, b: number) {
+    a = Math.abs(a);
+    b = Math.abs(b);
+    if (b > a) {
+        const temp = a;
+        a = b;
+        b = temp;
+    }
+    while (true) {
+        if (b == 0) return a;
+        a %= b;
+        if (a == 0) return b;
+        b %= a;
+    }
 }
