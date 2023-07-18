@@ -35,7 +35,7 @@ export async function getVideoMetadata(videoFile: string) {
 -v error 
     -select_streams v:0 
     -show_entries stream=width,height,duration,codec_type,codec_name,codec_long_name,bit_rate,size,r_frame_rate
-    ${videoFile}`.replaceAll('\n', ''), {
+    ${videoFile}`.replaceAll('\n', '').replaceAll('\r', ''), {
         windowsHide: true
     }).catch((reason) => {
         throw new Error(reason)
